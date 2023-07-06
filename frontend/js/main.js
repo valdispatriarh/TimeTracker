@@ -59,6 +59,6 @@ ShowTextareaTime()
 
 function ShowButtonSubmit(){
     const tagButtonSubmit = document.querySelector('.button-submit');
-    tagButtonSubmit.innerHTML = "<input type = 'button' value = 'submit')>"
+    tagButtonSubmit.innerHTML = "<input type = 'button' value = '+')>"
 }
 ShowButtonSubmit()
