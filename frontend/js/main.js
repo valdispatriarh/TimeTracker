@@ -5,6 +5,15 @@
 // textarea-time
 // button-submit -записывает в сторадже данные textarea-task 
 // + запускает функцию которая через промежуток  указзанный в textarea-time выведет новое окно с опросником
+// 1) зрабіць змены у ветцы devVlad
+// 2) зрабіць push origin devVlad
+// 3) зрабіць Pullreq in dev
+// 4)Merge in Dev
+
+// 5)pull in dev
+// 6) git chechout -b devVlad2
+// 
+
 
 function addBodyCentrumColumn(){
     const bodyhtml = document.createElement('div');
