@@ -3,15 +3,16 @@
 
 // textarea-task 
 // textarea-time
-// button-submit -записывает в сторадже данные textarea-task 
-// + запускает функцию которая через промежуток  указзанный в textarea-time выведет новое окно с опросником
+// button-submit - после нажатія записывает в сторадже данные textarea-task +записывает в другую переменную время таймера+
+// + запускает функцию которая через промежуток  указзанный в textarea-time 
+// выведет новое окно с опросником(сет тайм аут на опросник)
 // 1) зрабіць змены у ветцы devVlad
 // 2) зрабіць push origin devVlad
 // 3) зрабіць Pullreq in dev
 // 4)Merge in Dev
 
 // 5)pull in dev
-// 6) git chechout -b devVlad2
+// 6) git checkout -b devVlad2
 // 
 
 
@@ -21,11 +22,11 @@ function addBodyCentrumColumn(){
     bodyhtml.innerHTML = `
     <div class = "centrum-column">
         <div class = "time"></div>
-        <div class = "date">2</div>
+        <div class = "date"></div>
         <div class = "textareas-and-button">
-            <div class = "textarea-task">3.1</div>
-            <div class = "textarea-time">3.2</div>
-            <div class = "button-submit">3.3</div>
+            <div class = "textarea-task"><input type = 'text'></div>
+            <div class = "textarea-time"><input type = 'time'></div>
+            <div class = "button-submit"><input type = 'button' value = '+'></div>
         </div>
     </div>`
     document.body.appendChild(bodyhtml);
@@ -54,20 +55,29 @@ function showDate(){
 }    
 showDate()
 
-function ShowTextareaTask(){
-    const tagTextareaTask = document.querySelector('.textarea-task');
-    tagTextareaTask.innerHTML = "<input type = 'text'>"
+function PressButtonSubmitPlus(){
+    0
 }
-ShowTextareaTask()
+PressButtonSubmitPlus()
 
-function ShowTextareaTime(){
-    const tagTextareaTime = document.querySelector('.textarea-time');
-    tagTextareaTime.innerHTML = "<input type = 'time'>"
+function SaveTextareaTask(){
+    1
 }
-ShowTextareaTime()
+SaveTextareaTask()
 
-function ShowButtonSubmit(){
-    const tagButtonSubmit = document.querySelector('.button-submit');
-    tagButtonSubmit.innerHTML = "<input type = 'button' value = '+')>"
+function SaveTextareaTime(){
+    2
 }
-ShowButtonSubmit()
+SaveTextareaTime()
+
+function ShowQuestion(){
+    const tagTextareaAndButton = document.querySelector('.textareas-and-button');
+    tagTextareaAndButton.innerHTML = `Ты уложился в отведенное для себя время?
+                                <input type = 'button' value='yes'>
+                                <input type = 'button' value='no'>
+                                <input type = 'text' value='Почему?'>`
+}
+// setTimeout(() => {
+//     ShowQuestion()
+// }, "1000");
+
