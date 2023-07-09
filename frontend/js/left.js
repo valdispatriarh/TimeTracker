@@ -1,6 +1,9 @@
-"use strict";
+// "use strict";
 
-function addBodyLeftColumn() {
+// import {addBodyLeftColumn()} from './main.js'
+//addBodyLeftColumn();
+
+export function addBodyLeftColumn() {
   const container = document.querySelector(".container");
 
   const leftColumn = document.createElement("div");
@@ -26,4 +29,3 @@ function addBodyLeftColumn() {
     </div>`;
   container.appendChild(leftColumn);
 }
-addBodyLeftColumn();
