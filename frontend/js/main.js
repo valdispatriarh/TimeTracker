@@ -1,73 +1,88 @@
 // time
 // Date
-
-// textarea-task 
+// textarea-task
 // textarea-time
-// button-submit -записывает в сторадже данные textarea-task 
-// + запускает функцию которая через промежуток  указзанный в textarea-time выведет новое окно с опросником
+// button-submit - после нажатія записывает в сторадже данные textarea-task +записывает в другую переменную время таймера+
+// + запускает функцию которая через промежуток  указзанный в textarea-time
+// выведет новое окно с опросником(сет тайм аут на опросник)
 // 1) зрабіць змены у ветцы devVlad
 // 2) зрабіць push origin devVlad
 // 3) зрабіць Pullreq in dev
 // 4)Merge in Dev
 
 // 5)pull in dev
-// 6) git chechout -b devVlad2
-// 
+// 6) git checkout -b devVlad2
+// !!!!!npm istall
 
-
-function addBodyCentrumColumn(){
-    const bodyhtml = document.createElement('div');
-    bodyhtml.classList.add('container');
-    bodyhtml.innerHTML = `
+function addBodyCentrumColumn () {
+  const bodyhtml = document.createElement('div');
+  bodyhtml.classList.add('container');
+  bodyhtml.innerHTML = `
     <div class = "centrum-column">
         <div class = "time"></div>
-        <div class = "date">2</div>
+        <div class = "date"></div>
         <div class = "textareas-and-button">
-            <div class = "textarea-task">3.1</div>
-            <div class = "textarea-time">3.2</div>
-            <div class = "button-submit">3.3</div>
+            <div class = "textarea-task"><input type = 'text'></div>
+            <div class = "textarea-time"><input type = 'time'></div>
+            <div class = "button-submit"><input type = 'button' value = '+'></div>
         </div>
-    </div>`
-    document.body.appendChild(bodyhtml);
+    </div>`;
+  document.body.appendChild(bodyhtml);
 }
-addBodyCentrumColumn()
+addBodyCentrumColumn();
 
-function showTime(){
-    const tagTime = document.querySelector('.time');
-    const date = new Date()
-    tagTime.textContent = `${date.toLocaleTimeString()}`;
-    setTimeout(showTime, 1000);
-}    
-showTime()
-
-function showDate(){
-    const tagDate = document.querySelector('.date');
-    const date = new Date()
-    const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    };
-    tagDate.textContent = `${date.toLocaleDateString("en-US", options)}`;
-    setTimeout(showDate, 1000);
-}    
-showDate()
-
-function ShowTextareaTask(){
-    const tagTextareaTask = document.querySelector('.textarea-task');
-    tagTextareaTask.innerHTML = "<input type = 'text'>"
+function showTimeAndDate () {
+  const tagTime = document.querySelector('.time');
+  const date = new Date();
+  tagTime.textContent = `${date.toLocaleTimeString()}`;
+  const tagDate = document.querySelector('.date');
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+  tagDate.textContent = `${date.toLocaleDateString('en-US', options)}`;
+  setTimeout(showTimeAndDate, 1000);
 }
-ShowTextareaTask()
+showTimeAndDate();
 
-function ShowTextareaTime(){
-    const tagTextareaTime = document.querySelector('.textarea-time');
-    tagTextareaTime.innerHTML = "<input type = 'time'>"
+function showTextareaAndButton () {
+  const tagTextareaAndButton = document.querySelector('.textareas-and-button');
+  tagTextareaAndButton.innerHTML = `<div class = "textarea-task"><input type = 'text'></div>
+                                          <div class = "textarea-time"><input type = 'time'></div>
+                                          <div class = "button-submit"><input type = 'button' value = '+'></div>`;
 }
-ShowTextareaTime()
+showTextareaAndButton();
 
-function ShowButtonSubmit(){
-    const tagButtonSubmit = document.querySelector('.button-submit');
-    tagButtonSubmit.innerHTML = "<input type = 'button' value = '+')>"
+function pressButtonSubmitStartTimer () {
 }
-ShowButtonSubmit()
+pressButtonSubmitStartTimer();
+
+function saveTask () {
+}
+saveTask();
+
+function SaveTime () {
+
+}
+SaveTime();
+function StartTimer () {
+}
+StartTimer();
+
+// function ShowQuestion () {
+//   const tagTextareaAndButton = document.querySelector('.textareas-and-button');
+//   tagTextareaAndButton.innerHTML = `Ты уложился в отведенное для себя время?
+//                                      <div><input type = 'button' value='yes'></div>
+//                                      <div><input type = 'button' value='no'></div>
+//                                      <div><input type = 'text' value='Почему?'></div>
+//                                      <div class = "button-submit"><input type = 'button' value = '+'></div>`;
+//   let answerYes;
+//   let answerWhy;
+// }
+//     ShowQuestion()
+
+function PressButtonSubmitAnswer () {
+}
+PressButtonSubmitAnswer();
