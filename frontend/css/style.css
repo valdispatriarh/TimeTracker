@@ -13,6 +13,9 @@
     font-size: 20px;
     border-style: solid;
 }
+.player{
+    display: flex;
+}
 /* .textarea-task{
     background-color: red;
 }
