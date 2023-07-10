@@ -1,6 +1,5 @@
 // time
 // Date
-
 // textarea-task
 // textarea-time
 // button-submit - после нажатія записывает в сторадже данные textarea-task +записывает в другую переменную время таймера+
@@ -32,17 +31,11 @@ function addBodyCentrumColumn () {
 }
 addBodyCentrumColumn();
 
-function showTime () {
+function showTimeAndDate () {
   const tagTime = document.querySelector('.time');
   const date = new Date();
   tagTime.textContent = `${date.toLocaleTimeString()}`;
-  setTimeout(showTime, 1000);
-}
-showTime();
-
-function showDate () {
   const tagDate = document.querySelector('.date');
-  const date = new Date();
   const options = {
     weekday: 'long',
     year: 'numeric',
@@ -50,23 +43,33 @@ function showDate () {
     day: 'numeric'
   };
   tagDate.textContent = `${date.toLocaleDateString('en-US', options)}`;
-  setTimeout(showDate, 1000);
+  setTimeout(showTimeAndDate, 1000);
 }
-showDate();
+showTimeAndDate();
 
-function PressButtonSubmitTimeR () {
+function showTextareaAndButton () {
+  const tagTextareaAndButton = document.querySelector('.textareas-and-button');
+  tagTextareaAndButton.innerHTML = `<div class = "textarea-task"><input type = 'text'></div>
+                                          <div class = "textarea-time"><input type = 'time'></div>
+                                          <div class = "button-submit"><input type = 'button' value = '+'></div>`;
 }
-PressButtonSubmitTimeR();
+showTextareaAndButton();
 
-function SaveTextareaTask () {
-  1;
+function pressButtonSubmitStartTimer () {
 }
-SaveTextareaTask();
+pressButtonSubmitStartTimer();
 
-function SaveTextareaTime () {
-  2;
+function saveTask () {
 }
-SaveTextareaTime();
+saveTask();
+
+function SaveTime () {
+
+}
+SaveTime();
+function StartTimer () {
+}
+StartTimer();
 
 // function ShowQuestion () {
 //   const tagTextareaAndButton = document.querySelector('.textareas-and-button');
@@ -81,17 +84,5 @@ SaveTextareaTime();
 //     ShowQuestion()
 
 function PressButtonSubmitAnswer () {
-
 }
 PressButtonSubmitAnswer();
-
-// function timeR () {
-// }
-
-function showTextareaAndButton () {
-  const tagTextareaAndButton = document.querySelector('.textareas-and-button');
-  tagTextareaAndButton.innerHTML = `<div class = "textarea-task"><input type = 'text'></div>
-                                          <div class = "textarea-time"><input type = 'time'></div>
-                                          <div class = "button-submit"><input type = 'button' value = '+'></div>`;
-}
-showTextareaAndButton();
