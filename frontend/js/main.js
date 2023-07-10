@@ -7,11 +7,10 @@
 // выведет новое окно с опросником(сет тайм аут на опросник)
 // 1) зрабіць змены у ветцы devVlad
 // 2) зрабіць push origin devVlad
-// 3) зрабіць Pullreq in dev
+// 3) зрабіць P in dev
 // 4)Merge in Dev
-
-// 5)pull in dev
-// 6) git chechout -b devVlad2
+// 5)git pull
+// 6) git chechout -b devVlad(n)
 // !!!!!npm istall
 
 let bodyhtml = 1;
