@@ -12,13 +12,17 @@
 
 // 5)pull in dev
 // 6) git chechout -b devVlad2
-/// / !!!!!npm istall
+// !!!!!npm istall
 
-import { addBodyLeftColumn } from './left.js';
+let bodyhtml = 1;
+function addBody () {
+  bodyhtml = document.createElement('div');
+  bodyhtml.classList.add('container');
+  document.body.appendChild(bodyhtml);
+}
+addBody();
 
 function addBodyCentrumColumn () {
-  const bodyhtml = document.createElement('div');
-  bodyhtml.classList.add('container');
   bodyhtml.innerHTML = `
     <div class = "centrum-column">
         <div class = "time"></div>
@@ -29,9 +33,52 @@ function addBodyCentrumColumn () {
             <div class = "button-submit"><input type = 'button' value = '+'></div>
         </div>
     </div>`;
-  document.body.appendChild(bodyhtml);
 }
 addBodyCentrumColumn();
+
+function addBodyLeftColumn () {
+  const container = document.querySelector('.container');
+  const leftColumn = document.createElement('div');
+  leftColumn.classList.add('container');
+  leftColumn.innerHTML = `
+    <div class = "left-column">
+        <div class = "main-goals">
+        <h4>Task list</h4>
+          <ul>
+            <li>task1
+            <div class = "player">
+                <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
+                <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
+                <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
+            </div>
+            </li>
+            <li>task2
+            <div class = "player">
+                <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
+                <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
+                <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
+            </div>
+            </li>
+            <li>task3
+            <div class = "player">
+                <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
+                <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
+                <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
+            </div>
+            </li>
+            <li>task4
+            <div class = "player">
+                <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
+                <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
+                <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
+            </div>
+            </li>
+          </ul>
+        </div>
+    </div>`;
+  container.appendChild(leftColumn);
+}
+addBodyLeftColumn();
 
 function showTimeAndDate () {
   const tagTime = document.querySelector('.time');
