@@ -11,8 +11,10 @@
 // 4)Merge in Dev
 
 // 5)pull in dev
-// 6) git checkout -b devVlad2
-// !!!!!npm istall
+// 6) git chechout -b devVlad2
+/// / !!!!!npm istall
+
+import { addBodyLeftColumn } from './left.js';
 
 function addBodyCentrumColumn () {
   const bodyhtml = document.createElement('div');
