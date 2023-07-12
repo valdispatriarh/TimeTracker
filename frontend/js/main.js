@@ -13,6 +13,7 @@
 // 5)pull in dev
 // 6) git chechout -b devVlad2
 // !!!!!npm istall
+// 1) pull той веткі в которой находішься?
 
 let bodyhtml = 1;
 function addBody () {
