@@ -49,12 +49,19 @@ export function addBodyLeftColumn() {
         <div class = "btn play"><img src='../../assets/images/play.png' alt=play class = play-btn-img></div>
         <div class = "btn done"><img src='../../assets/images/done.png' alt=play class = done-btn-img></div>
         <div class="time-expected">${this.timeExpected}</div>
-        <div class="time-spent">${this.timeSpent}</div>
+        <div class="time-spent"> / ${this.timeSpent}</div>
         `;
       leftColumnSel.appendChild(taskHTML);
     }
   }
 
+  const arrTask = [];
+
   const task1 = new taskDaily("red", "Write class for task", "03.00", "02.28");
-  task1.htmlBuilder();
+  arrTask.push(task1);
+  const task2 = new taskDaily("green", "Make array of tasks", "00.30", "00.25");
+  arrTask.push(task2);
+
+  // add task to daily list
+  arrTask.forEach((x) => x.htmlBuilder());
 }
