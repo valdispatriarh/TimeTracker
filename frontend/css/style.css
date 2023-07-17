@@ -16,6 +16,13 @@
 .player{
     display: flex;
 }
+.right-column{
+    display: flex;
+    align-items: flex-end
+}
+#box1{
+    display: none;
+}
 /* .textarea-task{
     background-color: red;
 }
