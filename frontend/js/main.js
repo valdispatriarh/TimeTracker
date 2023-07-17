@@ -48,7 +48,7 @@ function addBodyLeftColumn () {
             <li id = 'box1'> task1
             <div class = "player" >
                 <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
-                <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
+                <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause id = 'timer-pause' class = pause-btn-img></div>
                 <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img>
                 </div><div id="timer1">60</div>
             </div>
@@ -171,107 +171,61 @@ function PressButtonSubmitAnswer () {
 }
 PressButtonSubmitAnswer();
 
-// function timer () {
-//   const timerInput = document.getElementById('time'); // Берём строку
-//   const buttonRun = document.getElementById('button');// Берём кнопку запуска
-//   const timerShow = document.getElementById('timer'); // Берём блок для показа времени
-
-//   buttonRun.addEventListener('click', function () {
-//     let timeMinut = parseInt(timerInput.value) * 60;
-
-//     const goodTimer = setInterval(function () {
-//       const seconds = timeMinut % 60; // Получаем секунды
-//       const min = timeMinut / 60; // Получаем минуты
-//       console.log(min);
-//       const hour = timeMinut / 60 / 60 % 60; // Получаем часы
-//       // Условие если время закончилось то...
-//       if (timeMinut <= 0) {
-//         // Таймер удаляется
-//         clearInterval(goodTimer);
-//         // Выводит сообщение что время закончилось
-//         alert('Время закончилось');
-//       } else { // Иначе
-//         // Создаём строку с выводом времени
-//         const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
-//         // Выводим строку в блок для показа таймера
-//         timerShow.innerHTML = strTimer;
-//       }
-//       --timeMinut; // Уменьшаем таймер
-//     }, 1000);
-//   });
-// }
-// timer();
 const timerInput = document.getElementById('time'); // Берём строку
 const buttonRun = document.getElementById('button');// Берём кнопку запуска
 const timerShow1 = document.getElementById('timer1'); // Берём блок для показа времени
 const timerShow2 = document.getElementById('timer2');
-
+const timerPauseId = document.getElementById('timer-pause');
 const timeMinut = 0;
-// class Timer {
-//   constructor (selector) {
-//     this.$el = document.getElementById(selector);
-//   }
-
-//   start () {
-//     buttonRun.addEventListener('click', function () {
-//       let timeMinut = parseInt(timerInput.value) * 60;
-//       const goodTimer = setInterval(function () {
-//         const seconds = timeMinut % 60; // Получаем секунды
-//         const min = timeMinut / 60; // Получаем минуты
-//         const hour = timeMinut / 60 / 60 % 60; // Получаем часы
-//         // Условие если время закончилось то...
-//         if (timeMinut <= 0) {
-//         // Таймер удаляется
-//           clearInterval(goodTimer);
-//           // Выводит сообщение что время закончилось
-//           alert('Время закончилось');
-//         } else { // Иначе
-//         // Создаём строку с выводом времени
-//           const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
-//           // Выводим строку в блок для показа таймера
-//           this.$el.innerHTML = strTimer;
-//         }
-//         --timeMinut; // Уменьшаем таймер
-//       }, 1000);
-//     });
-//   }
-// }
-// class TimerTask extends Timer {
-//   constructor (options) {
-//     super(options.selector);
-//   }
-// }
-// const timerTask1 = new TimerTask({ selector: 'timer1' });
-// timerTask1.start();
+let goodTimer = 0;
+let timeDataToPlayOnPause = timeMinut;/// ///////////////////////////////
 
 class Timer {
   start () {
-    buttonRun.addEventListener('click', function () {
-      let timeMinut = parseInt(timerInput.value) * 60;
-      const goodTimer = setInterval(function () {
-        const seconds = timeMinut % 60; // Получаем секунды
-        const min = timeMinut / 60; // Получаем минуты
-        const hour = timeMinut / 60 / 60 % 60; // Получаем часы
-        // Условие если время закончилось то...
-        if (timeMinut <= 0) {
-        // Таймер удаляется
-          clearInterval(goodTimer);
-          // Выводит сообщение что время закончилось
-          alert('Время закончилось');
-        } else { // Иначе
-        // Создаём строку с выводом времени
-          const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
-          // Выводим строку в блок для показа таймера
-          timerShow1.innerHTML = strTimer;
-        }
-        --timeMinut; // Уменьшаем таймер
-      }, 1000);
-    });
+    let timeMinut = parseInt(timerInput.value) * 60;
+    goodTimer = setInterval(function () {
+      const seconds = timeMinut % 60;
+      const min = timeMinut / 60 % 60;
+      const hour = timeMinut / 60 / 60 % 60;
+      if (timeMinut <= 0) {
+        clearInterval(goodTimer);
+        alert('Время закончилось');
+      } else {
+        const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
+        timerShow1.innerHTML = strTimer;
+      }
+      --timeMinut;
+      timeDataToPlayOnPause = timeMinut;/// ////////////////////////////////////
+    }, 1000);
+  }
+
+  pause () {
+    clearInterval(goodTimer);
+    // const timeDataToPlayOnPause = timeMinut;
+  }
+
+  startOnPause () {
+    let timeMinut = timeDataToPlayOnPause;/// //////////////////
+    goodTimer = setInterval(function () {
+      const seconds = timeMinut % 60;
+      const min = timeMinut / 60 % 60;
+      const hour = timeMinut / 60 / 60 % 60;
+      if (timeMinut <= 0) {
+        clearInterval(goodTimer);
+        alert('Время закончилось');
+      } else {
+        const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
+        timerShow1.innerHTML = strTimer;
+      }
+      --timeMinut;
+    }, 1000);
   }
 }
 
 const timerTask1 = new Timer();
-timerTask1.start();
+buttonRun.addEventListener('click', function () { timerTask1.start(); });
+timerPauseId.addEventListener('click', function () { timerTask1.pause(); });
+x.addEventListener('click', function () { timerTask1.startOnPause(); });
 
 class Task {
   constructor (selector) {
