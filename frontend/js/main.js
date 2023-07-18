@@ -47,7 +47,7 @@ function addBodyLeftColumn () {
           <ul>
             <li id = 'box1'> task1
             <div class = "player" >
-                <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
+                <div class = "btn play"><img src='../assets/images/play.png' alt=play id = 'timer-play' class = play-btn-img></div>
                 <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause id = 'timer-pause' class = pause-btn-img></div>
                 <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img>
                 </div><div id="timer1">60</div>
@@ -176,13 +176,18 @@ const buttonRun = document.getElementById('button');// Берём кнопку �
 const timerShow1 = document.getElementById('timer1'); // Берём блок для показа времени
 const timerShow2 = document.getElementById('timer2');
 const timerPauseId = document.getElementById('timer-pause');
-const timeMinut = 0;
+const timerPlayToPauseId = document.getElementById('timer-play');
+let timeMinut = 0;
 let goodTimer = 0;
-let timeDataToPlayOnPause = timeMinut;/// ///////////////////////////////
+let timeDataToPlayOnPause = 0;/// ///////////////////////////////
 
 class Timer {
+  // constructor (selector) {
+  //   this.$el = document.querySelector(selector);
+  // }
+
   start () {
-    let timeMinut = parseInt(timerInput.value) * 60;
+    timeMinut = parseInt(timerInput.value) * 60;
     goodTimer = setInterval(function () {
       const seconds = timeMinut % 60;
       const min = timeMinut / 60 % 60;
@@ -205,7 +210,7 @@ class Timer {
   }
 
   startOnPause () {
-    let timeMinut = timeDataToPlayOnPause;/// //////////////////
+    timeMinut = timeDataToPlayOnPause;/// //////////////////
     goodTimer = setInterval(function () {
       const seconds = timeMinut % 60;
       const min = timeMinut / 60 % 60;
@@ -218,6 +223,7 @@ class Timer {
         timerShow1.innerHTML = strTimer;
       }
       --timeMinut;
+      timeDataToPlayOnPause = timeMinut;
     }, 1000);
   }
 }
@@ -225,7 +231,7 @@ class Timer {
 const timerTask1 = new Timer();
 buttonRun.addEventListener('click', function () { timerTask1.start(); });
 timerPauseId.addEventListener('click', function () { timerTask1.pause(); });
-x.addEventListener('click', function () { timerTask1.startOnPause(); });
+timerPlayToPauseId.addEventListener('click', function () { timerTask1.startOnPause(); });
 
 class Task {
   constructor (selector) {
