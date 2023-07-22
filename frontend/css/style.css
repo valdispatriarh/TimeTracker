@@ -37,3 +37,11 @@
 .green {
   background-color: green;
 }
+
+.grey {
+  background-color: grey;
+}
+
+.task-name {
+  width: 20%;
+}

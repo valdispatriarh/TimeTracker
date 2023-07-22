@@ -1,32 +1,32 @@
 // "use strict";
 
-// import {addBodyLeftColumn()} from './main.js'
-//addBodyLeftColumn();
+// import {addBodrightColumn()} from './main.js'
+//addBodrightColumn();
 
 import { arr, arrDone } from "./arr.js";
 
-export function addBodyLeftColumn() {
+export function addBodyrightColumn() {
   const container = document.querySelector(".container");
 
-  // add left column to container
-  const leftColumn = document.createElement("div");
-  leftColumn.classList.add("left-column");
-  container.appendChild(leftColumn);
+  // addright column to container
+  const rightColumn = document.createElement("div");
+  rightColumn.classList.add("right-column");
+  container.appendChild(rightColumn);
 
-  // add red list to left column
-  const leftColumnRed = document.createElement("div");
-  leftColumnRed.classList.add("left-column-red");
-  leftColumn.appendChild(leftColumnRed);
+  // add red list toright column
+  const rightColumnRed = document.createElement("div");
+  rightColumnRed.classList.add("right-column-red");
+  rightColumn.appendChild(rightColumnRed);
 
-  // add Green list to left column
-  const leftColumnGreen = document.createElement("div");
-  leftColumnGreen.classList.add("left-column-green");
-  leftColumn.appendChild(leftColumnGreen);
+  // add Green list toright column
+  const rightColumnGreen = document.createElement("div");
+  rightColumnGreen.classList.add("right-column-green");
+  rightColumn.appendChild(rightColumnGreen);
 
-  // add Done list to left column
-  const leftColumnDone = document.createElement("div");
-  leftColumnDone.classList.add("left-column-done");
-  leftColumn.appendChild(leftColumnDone);
+  // add Done list toright column
+  const rightColumnDone = document.createElement("div");
+  rightColumnDone.classList.add("right-column-done");
+  rightColumn.appendChild(rightColumnDone);
 
   // task constructor
   class taskDaily {
@@ -50,17 +50,8 @@ export function addBodyLeftColumn() {
         `;
 
       this.tag === "red"
-        ? leftColumnRed.appendChild(taskHTML)
-        : leftColumnGreen.appendChild(taskHTML);
-
-      const lastElements = document.querySelectorAll(".play-btn-img");
-      const curElem = lastElements[lastElements.length - 1];
-      curElem.addEventListener("click", () => {
-        const lastElementsTimer = document.querySelectorAll(".time-spent");
-        const curElemTimer = lastElementsTimer[lastElementsTimer.length - 1];
-        curElemTimer.innerText = curElemTimer.innerText + 1;
-        console.log(curElemTimer.innerText);
-      });
+        ? rightColumnRed.appendChild(taskHTML)
+        : rightColumnGreen.appendChild(taskHTML);
     }
     htmlBuilderDone() {
       const taskHTML = document.createElement("div");
@@ -70,11 +61,11 @@ export function addBodyLeftColumn() {
         <div class="task-name">${this.taskName}</div>
         <div class = "btn play"><img src='../../assets/images/play.png' alt=play class = play-btn-img></div>
         <div class = "btn done"><img src='../../assets/images/done.png' alt=play class = done-btn-img></div>
-        <div class="time-expected">${this.timeExpected} / </div>
-        <div class="time-spent">${this.timeSpent}</div>
+        <div class="time-expected">${this.timeExpected}</div>
+        <div class="time-spent"> / ${this.timeSpent}</div>
         `;
 
-      leftColumnDone.appendChild(taskHTML);
+      rightColumnDone.appendChild(taskHTML);
     }
   }
 

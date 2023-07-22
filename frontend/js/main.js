@@ -15,6 +15,7 @@
 //
 
 import { addBodyLeftColumn } from "./left.js";
+import { addBodyrightColumn } from "./right.js";
 
 function addBodyCentrumColumn() {
   const bodyhtml = document.createElement("div");
@@ -33,6 +34,7 @@ function addBodyCentrumColumn() {
 }
 addBodyCentrumColumn();
 addBodyLeftColumn();
+addBodyrightColumn();
 
 function showTime() {
   const tagTime = document.querySelector(".time");
