@@ -15,13 +15,8 @@
 // !!!!!npm istall
 // 1) pull той веткі в которой находішься?
 
-let bodyhtml = 1;
-function addBody () {
-  bodyhtml = document.createElement('div');
-  bodyhtml.classList.add('container');
-  document.body.appendChild(bodyhtml);
-}
-addBody();
+import { addBodyLeftColumn } from "./left.js";
+import { addBodyrightColumn } from "./right.js";
 
 function addBodyCentrumColumn () {
   bodyhtml.innerHTML = `
@@ -80,6 +75,7 @@ function addBodyLeftColumn () {
   container.appendChild(leftColumn);
 }
 addBodyLeftColumn();
+addBodyrightColumn();
 
 function showTimeAndDate () {
   const tagTime = document.querySelector('.time');

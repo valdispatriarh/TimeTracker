@@ -1,27 +1,47 @@
-.centrum-column{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
+.centrum-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
-.textareas-and-button{
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
-    height: 100px;
-    font-size: 20px;
-    border-style: solid;
+.textareas-and-button {
+  display: flex;
+  justify-content: space-between;
 }
-.player{
-    display: flex;
+.textarea-task {
+  background-color: red;
 }
-/* .textarea-task{
-    background-color: red;
+.textarea-time {
+  background-color: orange;
 }
-.textarea-time{
-    background-color: orange;
+.button-submit {
+  background-color: green;
 }
-.button-submit{
-    background-color: green;
-} */
+
+.task {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.tag {
+  width: 10px;
+  height: 10px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.task-name {
+  width: 20%;
+}
