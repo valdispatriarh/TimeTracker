@@ -1,3 +1,11 @@
+// 1) зрабіць змены у ветцы devVlad
+// 2) зрабіць push origin devVlad
+// 3) зрабіць P in dev
+// 4)Merge in Dev
+// 5)git pull
+// 6) git chechout -b devVlad(n)
+// !!!!!npm istall
+
 // const animal = {
 //   name: 'Animal',
 //   age: 14,
@@ -108,3 +116,29 @@ pir2({
   height: 100,
   width: 100
 });
+// class Task {
+//   constructor (selector) {
+//     this.$el = document.querySelector(selector);
+//   }
+
+//   hide () {
+//     this.$el.style.display = 'none';
+//   }
+
+//   show () {
+//     this.$el.style.display = 'block';
+//   }
+// }
+
+// class TaskList extends Task {
+//   constructor (options) {
+//     super(options.selector);
+//     this.$el.style.width = this.$el.style.height = options.size + 'px';
+//     this.$el.style.background = options.color;
+//   }
+// }
+// const TaskList1 = new TaskList({
+//   selector: '#box1',
+//   size: 200,
+//   color: 'red'
+// });
