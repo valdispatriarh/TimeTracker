@@ -49,68 +49,57 @@ function ShowQuestion () {
   let answerWhy;
 }
 //     ShowQuestion()
-// const timerInput = document.getElementById('time');
-// let timeMinut = 0;
-// let goodTimer = 0;
-// let timeDataToPlayOnPause = 0;
 
-// class Timer {
-//   constructor (selector) {
-//     this.$show = document.querySelector(selector);
-//   }
+let timeMinut = 0;
+let goodTimer = 0;
+let timeDataToPlayOnPause = 0;
+class Timer {
+  constructor (selector) {
+    this.$show = document.querySelector(selector);
+  }
 
-//   start () {
-//     timeMinut = parseInt(timerInput.value) * 60;
-//     goodTimer = setInterval(function () {
-//       const seconds = timeMinut % 60;
-//       const min = timeMinut / 60 % 60;
-//       const hour = timeMinut / 60 / 60 % 60;
-//       if (timeMinut <= 0) {
-//         clearInterval(goodTimer);
-//         alert('Время закончилось');
-//       } else {
-//         const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
-//         this.$show.innerHTML = strTimer;
-//       }
-//       --timeMinut;
-//       timeDataToPlayOnPause = timeMinut;/// ////////////////////////////////////
-//     }, 1000);
-//   }
+  start () {
+    const timerInput = document.getElementById('time');
+    timeMinut = parseInt(timerInput.value) * 60;
+    goodTimer = setInterval(() => {
+      const seconds = timeMinut % 60;
+      const min = timeMinut / 60 % 60;
+      const hour = timeMinut / 60 / 60 % 60;
+      if (timeMinut <= 0) {
+        clearInterval(goodTimer);
+        alert('Время закончилось');
+      } else {
+        const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
+        this.$show.innerHTML = strTimer;
+      }
+      --timeMinut;
+      timeDataToPlayOnPause = timeMinut;/// ////////////////////////////////////
+    }, 1000);
+  }
 
-//   pause () {
-//     clearInterval(goodTimer);
-//     // const timeDataToPlayOnPause = timeMinut;
-//   }
+  pause () {
+    clearInterval(goodTimer);
+    // const timeDataToPlayOnPause = timeMinut;
+  }
 
-//   startOnPause () {
-//     timeMinut = timeDataToPlayOnPause;/// //////////////////
-//     goodTimer = setInterval(function () {
-//       const seconds = timeMinut % 60;
-//       const min = timeMinut / 60 % 60;
-//       const hour = timeMinut / 60 / 60 % 60;
-//       if (timeMinut <= 0) {
-//         clearInterval(goodTimer);
-//         alert('Время закончилось');
-//       } else {
-//         const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
-//         this.$show.innerHTML = strTimer;
-//       }
-//       --timeMinut;
-//       timeDataToPlayOnPause = timeMinut;
-//     }, 1000);
-//   }
-// }
-// class TimerGo extends Timer {
-//   constructor (options) {
-//     super(options.selector);
-//     this.$show.innerHTML = 13;
-//   }
-// }
-// const timer1 = new TimerGo({
-//   selector: '#timers',
-//   color: 'red'
-// }
-// );
+  startOnPause () {
+    timeMinut = timeDataToPlayOnPause;/// //////////////////
+    goodTimer = setInterval(function () {
+      const seconds = timeMinut % 60;
+      const min = timeMinut / 60 % 60;
+      const hour = timeMinut / 60 / 60 % 60;
+      if (timeMinut <= 0) {
+        clearInterval(goodTimer);
+        alert('Время закончилось');
+      } else {
+        const strTimer = `${Math.trunc(hour)}:${Math.trunc(min)}:${seconds}`;
+        this.$show.innerHTML = strTimer;
+      }
+      --timeMinut;
+      timeDataToPlayOnPause = timeMinut;
+    }, 1000);
+  }
+}
 // class Task {
 //   constructor (selector) {
 //     this.$el = document.querySelector(selector);
@@ -145,7 +134,8 @@ buttonRun.addEventListener('click', function () {
   const childrenCount = ul.children.length;
   const newLiEl = createrTimerEl(childrenCount);
   ul.appendChild(newLiEl);
-  // timer1.start();
+  const timer1 = new Timer(`#timer-${childrenCount}-count`);
+  timer1.start();
 });
 
 function createrTimerEl (id) {
@@ -169,7 +159,7 @@ function createrTimerEl (id) {
         </div>
         <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
     </div>
-    <div  title = 'nostart' class ="timers1"  id = "timers" ></div>
+    <div  title = 'nostart' class ="timers1"  id = 'timer-${id}-count' ></div>
   `;
   return li;
 }

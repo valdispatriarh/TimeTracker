@@ -21,6 +21,7 @@ class Animal {
 
   voice () {
     console.log('I am animal!');
+    console.log(this.age);
   }
 }
 
@@ -32,13 +33,15 @@ const animal = new Animal({
 
 class Cat extends Animal {
   constructor (options) {
-    super(options);
+    // super(options);
     this.color = options.color;
+    console.log(this);
   }
 
   voice () {
     super.voice();
     console.log('I am cat');
+    console.log(this.age);
   }
 
   get catInfo () {
