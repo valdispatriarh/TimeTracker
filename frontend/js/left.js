@@ -6,7 +6,7 @@
 import { arr, arrDone } from './arr.js';
 
 export function addBodyLeftColumn () {
-  const container = document.querySelector('.container');
+  const container = document.querySelector('.box-left');
 
   // add left column to container
   const leftColumn = document.createElement('div');

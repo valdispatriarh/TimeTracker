@@ -1,23 +1,28 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
 .centrum-column {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 100px;
+
+  
 }
 .textareas-and-button {
+  font-size: 30px;
   display: flex;
   justify-content: space-between;
+
+  position: relative;
+  left: 0;
+  transition: right 1s;
 }
-.textarea-task {
-  background-color: red;
-}
-.textarea-time {
-  background-color: orange;
-}
-.button-submit {
-  background-color: green;
-}
+
 
 .task {
   display: flex;
@@ -44,4 +49,17 @@
 
 .task-name {
   width: 20%;
+}
+.box-right{
+  font-size: 20px;
+
+}
+/* input {
+  border: none;
+} */
+.data-task-time{
+  display: flex;
+}
+.data-task-time2{
+  display: flex;
 }

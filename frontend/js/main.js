@@ -1,121 +1,81 @@
-// time
-// Date
-// textarea-task
-// textarea-time
-// button-submit - после нажатія записывает в сторадже данные textarea-task +записывает в другую переменную время таймера+
-// + запускает функцию которая через промежуток  указзанный в textarea-time
-// выведет новое окно с опросником(сет тайм аут на опросник)
-// 1) зрабіць змены у ветцы devVlad
-// 2) зрабіць push origin devVlad
-// 3) зрабіць Pullreq in dev
-// 4)Merge in Dev
-
-// 5)pull in dev
-// 6) git chechout -b devVlad2
-// !!!!!npm istall
-// 1) pull той веткі в которой находішься?
-
 import { addBodyLeftColumn } from './left.js';
 import { addBodyrightColumn } from './right.js';
 
-function addBodyCentrumColumn () {
+function addBody () {
+  const bodyhtml = document.createElement('div');
+  bodyhtml.classList.add('container');
   bodyhtml.innerHTML = `
+    <div class = "box-left" >
+        <div></div>
+    </div>
+
     <div class = "centrum-column">
-        <div class = "time"></div>
-        <div class = "date"></div>
-        <div class = "textareas-and-button">
-            <div class = "textarea-task"><input type = 'text'></div>
-            <div class = "textarea-time"><input type = 'time'></div>
-            <div class = "button-submit"><input type = 'button' value = '+'></div>
-        </div>
-    </div>`;
-}
-addBodyCentrumColumn();
+        <div class = "time">00:00:00</div>
+        <div class = "date">09.08.2020</div>
+        <input type = 'button' id = 'add-task' value = 'ADD TASK'>
+        <div class = "textareas-and-button"></div>    
+    </div>
 
-// function addBodyLeftColumn () {
-//   const container = document.querySelector('.container');
-//   const leftColumn = document.createElement('div');
-//   leftColumn.classList.add('container');
-//   leftColumn.innerHTML = `
-//     <div class = "left-column">
-//         <div class = "main-goals">
-//         <h4>Task list</h4>
-//           <ul>
-//             <li>task1
-//             <div class = "player">
-//                 <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
-//                 <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
-//                 <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
-//             </div>
-//             </li>
-//             <li>task2
-//             <div class = "player">
-//                 <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
-//                 <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
-//                 <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
-//             </div>
-//             </li>
-//             <li>task3
-//             <div class = "player">
-//                 <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
-//                 <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
-//                 <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
-//             </div>
-//             </li>
-//             <li>task4
-//             <div class = "player">
-//                 <div class = "btn play"><img src='../assets/images/play.png' alt=play class = play-btn-img></div>
-//                 <div class = "btn pause"><img src='../assets/images/pause.png' alt=pause class = pause-btn-img></div>
-//                 <div class = "btn done"><img src='../assets/images/done.png' alt=play class = done-btn-img></div>
-//             </div>
-//             </li>
-//           </ul>
-//         </div>
-//     </div>`;
-//   container.appendChild(leftColumn);
-// }
-addBodyLeftColumn();
-addBodyrightColumn();
+    <div class = "box-right" > task list   
+        <ul id = 'dailyTimerList'></ul>
+    </div>
+    `;
+  document.body.appendChild(bodyhtml);
 
-function showTimeAndDate () {
-  const tagTime = document.querySelector('.time');
-  const date = new Date();
-  tagTime.textContent = `${date.toLocaleTimeString()}`;
-  const tagDate = document.querySelector('.date');
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
-  tagDate.textContent = `${date.toLocaleDateString('en-US', options)}`;
-  setTimeout(showTimeAndDate, 1000);
+  const addTaskBtn = document.getElementById('add-task');
+  addTaskBtn.addEventListener('click', showTextareaAndButton);
 }
-showTimeAndDate();
+addBody();
 
 function showTextareaAndButton () {
   const tagTextareaAndButton = document.querySelector('.textareas-and-button');
-  tagTextareaAndButton.innerHTML = `<div class = "textarea-task"><input type = 'text'></div>
-                                          <div class = "textarea-time"><input type = 'time'></div>
-                                          <div class = "button-submit"><input type = 'button' value = '+'></div>`;
-}
-showTextareaAndButton();
+  tagTextareaAndButton.innerHTML = `
+  <div class = "box-add-task">
+    <div class = "data-task-time">
+      <div><input type = 'text' value = 'red/green'></div>
+      <div class = "textarea-task"><input type = 'text' value = 'task'></div>
+      <div class = "textarea-time" ><input type = 'text' id = "time" value = 'time'></div>
+    </div>
+    <div class = "down" id = "down"><input type = 'button' value = '&#x25BC'></div>
+    <div class = "button-submit" id = "button"><input type = 'button' value = 'move to task list'></div>
+  </div>
+  `;
+  const addSubTaskBtn = document.getElementById('down');
+  addSubTaskBtn.addEventListener('click', showTextareaAndButton2);
 
-function pressButtonSubmitStartTimer () {
+  addBodyrightColumn();
 }
-pressButtonSubmitStartTimer();
 
-function saveTask () {
+function showTextareaAndButton2 () {
+  const tagTextareaAndButton = document.querySelector('.down');
+  tagTextareaAndButton.innerHTML = `
+  <div class = "box-add-task2">
+    <div class = "data-task-time2">
+      <div class = "textarea-task2"><input type = 'text' value = 'sub-task'></div>
+      <div class = "textarea-time2" ><input type = 'text' id = "time2" value = 'time'></div>
+    </div>
+    <div class = "down2" id = "down2"><input type = 'button' value = '&#x25B2'></div>
+  </div>
+  `;
 }
-saveTask();
 
-function SaveTime () {
+/// /b2 вверх стрелка
+function showTimeAndDate () {
+  const tagTime = document.querySelector('.time');
+  const tagDate = document.querySelector('.date');
+  const date = new Date();
+  tagTime.textContent = `${date.toLocaleTimeString()}`;
+  const options = {
+    // weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  };
+  tagDate.textContent = `${date.toLocaleDateString('ru-RU', options)}`;
+}
+setInterval(showTimeAndDate, 1000);
 
-}
-SaveTime();
-function StartTimer () {
-}
-StartTimer();
+addBodyLeftColumn();
 
 // function ShowQuestion () {
 //   const tagTextareaAndButton = document.querySelector('.textareas-and-button');
@@ -128,7 +88,3 @@ StartTimer();
 //   let answerWhy;
 // }
 //     ShowQuestion()
-
-function PressButtonSubmitAnswer () {
-}
-PressButtonSubmitAnswer();
