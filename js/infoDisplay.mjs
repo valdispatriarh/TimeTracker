@@ -1,14 +1,11 @@
 export function addTimeAndDate(totalTimer) {
   const bodyhtml = document.createElement("div");
-  bodyhtml.classList.add("container");
+  bodyhtml.classList.add("centrum-column");
   bodyhtml.innerHTML = `
-        <div class = "centrum-column">
             <div class = "time">00:00:00</div>
             <div class = "date">09.08.2020</div> 
             <div>Total timer in this entire application: ${totalTimer} hour(s)</div> 
-        </div>
         `;
-
   document.body.appendChild(bodyhtml);
 
   function apdateTimeAndDate() {
