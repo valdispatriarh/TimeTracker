@@ -1,23 +1,22 @@
-body {
-  font-size: 24px;
-}
-div {
-  margin: 5px;
-}
+
 .centrum-column {
   flex-direction: column;
+  font-size: 1rem;
+  margin: 0;
+  display: flex; 
+  justify-content: center; 
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-.box-tasks {
-  display: flex;
-}
-.task {
-  display: flex;
   border: 1px solid black;
+  font-size: 2rem;
 }
+
 .timer {
   display: flex;
-  /* border: 1px solid red; */
+  margin: 1.5rem;
+  font-size: 2rem;
+
+}
+
+.item{
+  margin-right: 2rem;
 }
