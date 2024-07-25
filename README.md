@@ -1,1 +1,1 @@
-[# time-trecker](https://valdispatriarh.github.io/TimeTracker/)
+https://valdispatriarh.github.io/TimeTracker/
